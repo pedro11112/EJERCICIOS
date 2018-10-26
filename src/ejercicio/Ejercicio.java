@@ -19,26 +19,29 @@ Todas las promociones son acumulables. Ej: Si el cliente gastó $600 y paga con 
  */
 public class Ejercicio {
 
-    static void Array() {
+    // Pide el tamano para el arreglo y cada uno de sus valores, luego lo retorna
+    static int[] getArray() {
         Scanner entrada = new Scanner(System.in);
-        int numero;
-        int min = 100000;
-        int max = -100000;
+        int arraySize;
 
         System.out.print("Digite los elementos del arreglo: ");
-        numero = entrada.nextInt();
+        arraySize = entrada.nextInt();
         
-        int[] numeros = new int[numero];
+        int[] array = new int[arraySize];
 
-        for (int i = 0; i < numero; i++) {
-            System.out.print(i + 1 + ". Digite un caracter: ");
-            numeros[i] = entrada.nextInt();
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(i + 1 + ". Digite un numero: ");
+            array[i] = entrada.nextInt();
         }
-        System.out.println("\nLos numeros son: ");
-        for (int i = 0; i < numero; i++) {
-            System.out.println(numeros[i] + " ");
-
-        }
+        
+        // no es necesario imprimirlo (imprimir es mostrarlo) de nuevo..
+        
+//        System.out.println("\nLos numeros son: ");
+//        for (int i = 0; i < numeros.length; i++) {
+//            System.out.println(numeros[i] + " ");
+//        }
+        
+        return array;
     }
 
     static int obtener_mcd(int a, int b) {
@@ -66,29 +69,28 @@ public class Ejercicio {
     la lista. El numero de pares y la media de los impares. 
      */
     static void ejercico19() {
-        Scanner entrada = new Scanner(System.in);
-        int numero, suma1 = 0, suma = 0;
-        int numeros_pares = 0;
-        int numeros_impares = 0;
-        float mediaimpares;
+        int acumuladorPares = 0, acumuladorImpares = 0;
+        int numerosPares = 0;
+        int numerosImpares = 0;
+        float mediaImpares;
 
-        int[] numeros = {10, 1, 5, 4, 2, 8, 1, 3, 6, 9};
+        // lo que retorna la función (método) 'getArray', se guarda en la variable 'numeros'
+        int[] numeros = getArray();
 
         for (int i = 0; i < numeros.length; i++) {
-            System.out.print(i + 1 + ". Digite un caracter: ");
-            numeros[i] = entrada.nextInt();
-
             if (numeros[i] % 2 == 0) {
-                suma1 += numeros[i];
-                numeros_pares++;
+                acumuladorPares += numeros[i];
+                numerosPares++;
             } else {
-                suma += numeros[i];
-                numeros_impares++;
+                acumuladorImpares += numeros[i];
+                numerosImpares++;
             }
         }
 
-        mediaimpares = suma / numeros_impares;
-        System.out.println("La suma de los pares es: " + suma1 + "\nEl numero es pares es:  " + numeros_pares + "\nLa media de los impares es: " + mediaimpares);
+        mediaImpares = acumuladorImpares / numerosImpares;
+        System.out.println("La suma de los pares es: " + acumuladorPares + 
+                "\nEl numero es pares es:  " + numerosPares + 
+                "\nLa media de los impares es: " + mediaImpares);
 
     }
 
@@ -133,5 +135,6 @@ public class Ejercicio {
     }
 
     public static void main(String[] args) {
+        ejercico19();
     }
 }
