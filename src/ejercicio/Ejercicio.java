@@ -26,21 +26,19 @@ public class Ejercicio {
 
         System.out.print("Digite los elementos del arreglo: ");
         arraySize = entrada.nextInt();
-        
+
         int[] array = new int[arraySize];
 
         for (int i = 0; i < array.length; i++) {
             System.out.print(i + 1 + ". Digite un numero: ");
             array[i] = entrada.nextInt();
         }
-        
+
         // no es necesario imprimirlo (imprimir es mostrarlo) de nuevo..
-        
 //        System.out.println("\nLos numeros son: ");
 //        for (int i = 0; i < numeros.length; i++) {
 //            System.out.println(numeros[i] + " ");
 //        }
-        
         return array;
     }
 
@@ -88,9 +86,9 @@ public class Ejercicio {
         }
 
         mediaImpares = acumuladorImpares / numerosImpares;
-        System.out.println("La suma de los pares es: " + acumuladorPares + 
-                "\nEl numero es pares es:  " + numerosPares + 
-                "\nLa media de los impares es: " + mediaImpares);
+        System.out.println("La suma de los pares es: " + acumuladorPares
+                + "\nEl numero es pares es:  " + numerosPares
+                + "\nLa media de los impares es: " + mediaImpares);
 
     }
 
@@ -134,11 +132,130 @@ public class Ejercicio {
         }
     }
 
-    
-    bvmfyuy;
-    
-    
+    /* 
+    Dados dos números enteros realizar el algoritmo que calcule el cociente 
+    y el resto (suponiendo que no existe los operadores para ello) 
+     */
+    static void restoYcociente() {
+        Scanner entrada = new Scanner(System.in);
+
+        int n1, n2;
+        int resto, cociente = 0;
+
+        System.out.print("Digite un numero: ");
+        n1 = entrada.nextInt();
+        System.out.print("Digite un numero: ");
+        n2 = entrada.nextInt();
+
+        while (n1 >= n2) {
+            n1 = n1 - n2;
+            cociente++;
+        }
+        System.out.println("El cociente es: " + cociente + " y el resto es: " + n1);
+
+    }
+
+    /*
+    Calcular el máximo valor de una serie de 100 números.
+     */
+    static void maximoValor() {
+        Scanner entrada = new Scanner(System.in);
+        int max = -1000000;
+        int[] maximo = {5, 4, 10, 2, 5};
+
+        for (int i = 0; i < maximo.length; i++) {
+            if (maximo[i] > max) {
+                max = maximo[i];
+            }
+        }
+        System.out.println("El numero maximo es: " + max);
+    }
+
+    static void maximoValor1() {
+        Scanner entrada = new Scanner(System.in);
+        int mayor, menor;
+        int[] arreglo = {5, 4, 10, 2, 5};
+
+        for (int i = 0; i < arreglo.length; i++) {
+
+        }
+        menor = mayor = arreglo[0];
+        for (int j = 0; j < arreglo.length; j++) {
+            if (arreglo[j] > mayor) {
+                mayor = arreglo[j];
+            }
+            if (arreglo[j] < menor) {
+                menor = arreglo[j];
+            }
+        }
+        System.out.println("Elemento mayor es: \n" + mayor);
+        System.out.println("Elemento menor es: \n" + menor);
+    }
+
+    /*
+    Se introduce por teclado una hora determinada con el formato H, M, S. 
+    Se pide calcular la hora que será dentro de un segundo. 
+     */
+    static void addSecondsToTimeBy() {
+        Scanner entrada = new Scanner(System.in);
+        int H, M, S;
+
+        System.out.println("introduce la hora: ");
+        H = entrada.nextInt();
+        System.out.println("introduce los minutos: ");
+        M = entrada.nextInt();
+        System.out.println("introduce los segundos: ");
+        S = entrada.nextInt();
+
+        if (H >= 0 && H <= 23 && M >= 0 && M <= 59 && S >= 0 && S <= 59) {
+            S++;
+            if (S == 60) {
+                S = 0;
+                M++;
+                if (M == 60) {
+                    M = 0;
+                    H++;
+                    if (H == 24) {
+                        H = 0;
+                    }
+                }
+            }
+            System.out.println("Un segundo despues la hora seria: " + H + ":" + M + ":" + S);
+        } else {
+            System.out.println("Introduzca una horra correcta.");
+        }
+    }
+
+    /*
+    Un capital C se coloca a un interés anual R. Al cabo de cuantos años se 
+    doblará? 
+     */
+    static void interesFinal() {
+        Scanner entrada = new Scanner(System.in);
+        float veces = 0, interesdecimal, limite, base, operar, C, R, años = 0;
+        System.out.print("Ingrese el capital: ");
+        C = entrada.nextFloat();
+        System.out.print("Ingrese el interes: ");
+        R = entrada.nextFloat();
+
+        interesdecimal = R / 100;
+        limite = 2 * C;
+        base = C;
+        while (C <= limite) {
+            operar = C * interesdecimal;
+            C = C + operar;
+            años++;
+        }
+        if (C > limite) {
+            veces = C / base;
+        }
+        System.out.println("El interes tomaria " + años
+                + " años en doblar su valor Y el capital final sera "
+                + veces + " mas grande grande");
+    }
+
     public static void main(String[] args) {
-        ejercico19();
+        Scanner entrada = new Scanner(System.in);
+        
     }
 }
